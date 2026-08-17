@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset
+  name="Salesforce fflib Rules"
+  xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+                             https://pmd.github.io/schema/ruleset_2_0_0.xsd"
+>
+
+    <description>
+        PMD ruleset for Salesforce Apex projects using fflib Apex Enterprise Patterns.
+    </description>
+
+    <!-- ============================================================
+         BEST PRACTICES
+         ============================================================ -->
+
+    <rule ref="category/apex/bestpractices.xml/AvoidGlobalModifier" />
+    <rule ref="category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts" />
+
+    <!-- ============================================================
+         CODE STYLE
+         ============================================================ -->
+
+    <rule ref="category/apex/codestyle.xml/FieldNamingConventions" />
+    <rule ref="category/apex/codestyle.xml/MethodNamingConventions" />
+    <rule ref="category/apex/codestyle.xml/VariableNamingConventions" />
+    <rule ref="category/apex/codestyle.xml/ClassNamingConventions" />
+
+    <!-- ============================================================
+         DESIGN / COMPLEXITY
+         ============================================================ -->
+
+    <rule ref="category/apex/design.xml/CyclomaticComplexity">
+        <properties>
+            <property name="methodReportLevel" value="10" />
+            <property name="classReportLevel" value="40" />
+        </properties>
+    </rule>
+
+    <rule ref="category/apex/design.xml/ExcessiveParameterList">
+        <properties>
+            <property name="minimum" value="5" />
+        </properties>
+    </rule>
+
+    <rule ref="category/apex/design.xml/ExcessivePublicCount" />
+    <rule ref="category/apex/design.xml/NcssMethodCount">
+        <properties>
+            <property name="minimum" value="60" />
+        </properties>
+    </rule>
+
+    <rule ref="category/apex/design.xml/StdCyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="10" />
+        </properties>
+    </rule>
+
+    <!-- ============================================================
+         ERROR PRONE
+         ============================================================ -->
+
+    <rule ref="category/apex/errorprone.xml/ApexCSRF" />
+    <rule ref="category/apex/errorprone.xml/ApexSOQLInjection" />
+    <rule ref="category/apex/errorprone.xml/ApexXSSFromURLParam" />
+    <rule ref="category/apex/errorprone.xml/AvoidDatabaseQueryInLoop" />
+    <rule ref="category/apex/errorprone.xml/AvoidDmlStatementsInLoops" />
+    <rule ref="category/apex/errorprone.xml/AvoidSoqlInLoops" />
+
+    <!-- ============================================================
+         PERFORMANCE
+         ============================================================ -->
+
+    <rule ref="category/apex/performance.xml/AvoidSoqlInLoop" />
+    <rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" />
+
+    <!-- ============================================================
+         SECURITY
+         ============================================================ -->
+
+    <rule ref="category/apex/security.xml/ApexCRUDViolation" />
+    <rule ref="category/apex/security.xml/ApexSOQLInjection" />
+    <rule ref="category/apex/security.xml/ApexSharingViolations" />
+
+</ruleset>
