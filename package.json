@@ -13,7 +13,9 @@
     "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
     "prepare": "husky || true",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged && npm run pmd:report",
+    "pmd": "pmd check --dir force-app/main/default --rulesets config/pmd/fflib-ruleset.xml",
+    "pmd:report": "pmd check --dir force-app/main/default --rulesets config/pmd/fflib-ruleset.xml --format html --report-file pmd-report.html && start pmd-report.html"
   },
   "devDependencies": {
     "@lwc/eslint-plugin-lwc": "^3.1.0",

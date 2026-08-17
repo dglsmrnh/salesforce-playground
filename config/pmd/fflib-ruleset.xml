@@ -15,17 +15,36 @@
          BEST PRACTICES
          ============================================================ -->
 
+    <!-- Enforce Trigger Handler pattern -->
+    <rule ref="category/apex/bestpractices.xml/AvoidLogicInTrigger" />
+
     <rule ref="category/apex/bestpractices.xml/AvoidGlobalModifier" />
+
     <rule ref="category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts" />
 
     <!-- ============================================================
          CODE STYLE
          ============================================================ -->
 
-    <rule ref="category/apex/codestyle.xml/FieldNamingConventions" />
-    <rule ref="category/apex/codestyle.xml/MethodNamingConventions" />
-    <rule ref="category/apex/codestyle.xml/VariableNamingConventions" />
     <rule ref="category/apex/codestyle.xml/ClassNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/MethodNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/FieldNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/LocalVariableNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/FormalParameterNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/PropertyNamingConventions" />
+
+    <rule ref="category/apex/codestyle.xml/IfStmtsMustUseBraces" />
+
+    <rule ref="category/apex/codestyle.xml/IfElseStmtsMustUseBraces" />
+
+    <rule ref="category/apex/codestyle.xml/ForLoopsMustUseBraces" />
+
+    <rule ref="category/apex/codestyle.xml/WhileLoopsMustUseBraces" />
 
     <!-- ============================================================
          DESIGN / COMPLEXITY
@@ -38,6 +57,12 @@
         </properties>
     </rule>
 
+    <rule ref="category/apex/design.xml/StdCyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="10" />
+        </properties>
+    </rule>
+
     <rule ref="category/apex/design.xml/ExcessiveParameterList">
         <properties>
             <property name="minimum" value="5" />
@@ -45,42 +70,43 @@
     </rule>
 
     <rule ref="category/apex/design.xml/ExcessivePublicCount" />
-    <rule ref="category/apex/design.xml/NcssMethodCount">
+
+    <rule ref="category/apex/design.xml/NcssCount">
         <properties>
-            <property name="minimum" value="60" />
+            <property name="methodReportLevel" value="60" />
         </properties>
     </rule>
-
-    <rule ref="category/apex/design.xml/StdCyclomaticComplexity">
-        <properties>
-            <property name="reportLevel" value="10" />
-        </properties>
-    </rule>
-
-    <!-- ============================================================
-         ERROR PRONE
-         ============================================================ -->
-
-    <rule ref="category/apex/errorprone.xml/ApexCSRF" />
-    <rule ref="category/apex/errorprone.xml/ApexSOQLInjection" />
-    <rule ref="category/apex/errorprone.xml/ApexXSSFromURLParam" />
-    <rule ref="category/apex/errorprone.xml/AvoidDatabaseQueryInLoop" />
-    <rule ref="category/apex/errorprone.xml/AvoidDmlStatementsInLoops" />
-    <rule ref="category/apex/errorprone.xml/AvoidSoqlInLoops" />
 
     <!-- ============================================================
          PERFORMANCE
          ============================================================ -->
 
-    <rule ref="category/apex/performance.xml/AvoidSoqlInLoop" />
-    <rule ref="category/apex/performance.xml/AvoidDmlStatementsInLoops" />
+    <!--
+        Detects SOQL, DML, SOSL, Database operations and other
+        governor-limit-sensitive operations inside loops.
+    -->
+    <rule ref="category/apex/performance.xml/OperationWithLimitsInLoop" />
+
+    <rule ref="category/apex/performance.xml/OperationWithHighCostInLoop" />
+
+    <rule ref="category/apex/performance.xml/AvoidDebugStatements" />
+
+    <rule ref="category/apex/performance.xml/AvoidNonRestrictiveQueries" />
 
     <!-- ============================================================
          SECURITY
          ============================================================ -->
 
     <rule ref="category/apex/security.xml/ApexCRUDViolation" />
-    <rule ref="category/apex/security.xml/ApexSOQLInjection" />
+
     <rule ref="category/apex/security.xml/ApexSharingViolations" />
+
+    <rule ref="category/apex/security.xml/ApexSOQLInjection" />
+
+    <rule ref="category/apex/security.xml/ApexXSSFromURLParam" />
+
+    <rule ref="category/apex/security.xml/ApexXSSFromEscapeFalse" />
+
+    <rule ref="category/apex/security.xml/ApexInsecureEndpoint" />
 
 </ruleset>
