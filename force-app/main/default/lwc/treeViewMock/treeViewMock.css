@@ -1,0 +1,4 @@
+.status {
+  background: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  border-radius: 0.25rem;
+}

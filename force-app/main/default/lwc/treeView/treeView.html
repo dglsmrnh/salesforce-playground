@@ -1,0 +1,15 @@
+<template>
+  <ul class="tree" role="tree">
+    <template for:each={treeItems} for:item="item">
+      <c-tree-node
+        key={item.name}
+        item={item}
+        renderer={renderer}
+        depth="1"
+        onselect={handleSelect}
+        ontoggle={handleToggle}
+        onaction={handleAction}
+      ></c-tree-node>
+    </template>
+  </ul>
+</template>

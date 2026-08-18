@@ -1,0 +1,20 @@
+<template>
+  <lightning-card title="Árvore customizada" icon-name="standard:hierarchy">
+    <div class="content slds-p-horizontal_medium slds-p-bottom_medium">
+      <p class="slds-m-bottom_small">Cada item abaixo é renderizado por um componente customizado.</p>
+
+      <c-tree-view
+        items={treeItems}
+        renderer={treeRenderer}
+        onselect={handleSelect}
+        ontoggle={handleToggle}
+        onaction={handleAction}
+      ></c-tree-view>
+
+      <div class="status slds-m-top_medium slds-p-around_small">
+        <p><strong>Selecionado:</strong> {selectedLabel}</p>
+        <p><strong>Último evento:</strong> {lastAction}</p>
+      </div>
+    </div>
+  </lightning-card>
+</template>

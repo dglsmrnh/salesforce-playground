@@ -1,0 +1,30 @@
+.tree-node {
+  list-style: none;
+}
+
+.tree-node__row {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.tree-node__toggle,
+.tree-node__toggle-placeholder {
+  align-items: center;
+  display: inline-flex;
+  height: 1.5rem;
+  justify-content: center;
+  width: 1.5rem;
+}
+
+.tree-node__toggle {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tree-node__children {
+  margin: 0;
+  padding-left: 1.5rem;
+}

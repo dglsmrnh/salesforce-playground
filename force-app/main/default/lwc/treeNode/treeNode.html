@@ -1,0 +1,40 @@
+<template>
+  <li class="tree-node" role="treeitem" aria-level={depth} aria-expanded={ariaExpanded}>
+    <div class="tree-node__row" onclick={handleSelect}>
+      <template lwc:if={hasChildren}>
+        <button
+          class="tree-node__toggle"
+          type="button"
+          aria-label="Expandir ou recolher nó"
+          aria-expanded={isExpanded}
+          onclick={handleToggle}
+        >
+          <span aria-hidden="true">{toggleIcon}</span>
+        </button>
+      </template>
+      <template lwc:else>
+        <span class="tree-node__toggle-placeholder" aria-hidden="true"></span>
+      </template>
+
+      <lwc:component lwc:is={renderer} lwc:spread={rendererProps} onaction={handleRendererAction}></lwc:component>
+    </div>
+
+    <template lwc:if={isExpanded}>
+      <template lwc:if={hasChildren}>
+        <ul class="tree-node__children" role="group">
+          <template for:each={children} for:item="child">
+            <c-tree-node
+              key={child.name}
+              item={child}
+              renderer={renderer}
+              depth={childDepth}
+              onselect={handleSelect}
+              ontoggle={handleToggle}
+              onaction={handleChildAction}
+            ></c-tree-node>
+          </template>
+        </ul>
+      </template>
+    </template>
+  </li>
+</template>

@@ -1,0 +1,17 @@
+.renderer {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.description {
+  color: var(--lwc-colorTextWeak, #706e6b);
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--lwc-colorBorder, #c9c9c9);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 0.125rem 0.375rem;
+}

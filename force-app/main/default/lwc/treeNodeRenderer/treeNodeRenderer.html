@@ -1,0 +1,11 @@
+<template>
+  <div class="renderer">
+    <div>
+      <strong data-node-name={node.name}>{node.label}</strong>
+      <template lwc:if={node.description}>
+        <span class="description"> — {node.description}</span>
+      </template>
+    </div>
+    <button type="button" onclick={handleAction}>Ação</button>
+  </div>
+</template>
