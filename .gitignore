@@ -26,6 +26,7 @@ node_modules/
 
 # ApexPMD cache
 .pmdCache
+pmd-report.html
 
 # Eslint cache
 .eslintcache
