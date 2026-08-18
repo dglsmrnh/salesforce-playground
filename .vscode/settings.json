@@ -139,5 +139,9 @@
         "@last modified by  : <<author>>"
       ]
     }
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "dglsmrnh",
+    "projectKey": "dglsmrnh_salesforce-playground"
+  }
 }
