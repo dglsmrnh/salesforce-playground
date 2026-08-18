@@ -6,6 +6,7 @@
   align-items: center;
   display: flex;
   gap: 0.25rem;
+  width: 100%;
 }
 
 .tree-node__toggle,
@@ -24,7 +25,37 @@
   padding: 0;
 }
 
+.tree-node__renderer {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
 .tree-node__children {
   margin: 0;
+  position: relative;
   padding-left: 1.5rem;
+}
+
+.tree-node__children::before {
+  border-left: 1px solid var(--lwc-colorBorder, #d8dde6);
+  bottom: 1.25rem;
+  content: '';
+  left: 0.75rem;
+  position: absolute;
+  top: 0;
+}
+
+.tree-node__children > .tree-node {
+  position: relative;
+}
+
+.tree-node__children > .tree-node::before {
+  border-top: 1px solid var(--lwc-colorBorder, #d8dde6);
+  content: '';
+  left: -0.75rem;
+  position: absolute;
+  top: 1.25rem;
+  width: 0.75rem;
 }

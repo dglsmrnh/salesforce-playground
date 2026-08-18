@@ -80,6 +80,26 @@ export default class TreeNode extends LightningElement {
     );
   }
 
+  handleChildSelect(event) {
+    this.dispatchEvent(
+      new CustomEvent('select', {
+        detail: event.detail,
+        bubbles: false,
+        composed: false
+      })
+    );
+  }
+
+  handleChildToggle(event) {
+    this.dispatchEvent(
+      new CustomEvent('toggle', {
+        detail: event.detail,
+        bubbles: false,
+        composed: false
+      })
+    );
+  }
+
   handleRendererAction(event) {
     event.stopPropagation();
     this.dispatchEvent(

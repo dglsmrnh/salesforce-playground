@@ -1,11 +1,23 @@
 <template>
-  <div class="renderer">
-    <div>
-      <strong data-node-name={node.name}>{node.label}</strong>
+  <article class="node-card">
+    <div class="node-card__accent" aria-hidden="true"></div>
+    <div class="node-card__content">
+      <div class="node-card__header">
+        <div>
+          <span class="node-card__eyebrow">Nó nível {depth}</span>
+          <h3 data-node-name={node.name}>{node.label}</h3>
+        </div>
+        <span class={statusClass}>{status}</span>
+      </div>
+
       <template lwc:if={node.description}>
-        <span class="description"> — {node.description}</span>
+        <p class="description">{node.description}</p>
       </template>
+
+      <div class="node-card__footer">
+        <span class="owner">Responsável: {owner}</span>
+        <button type="button" onclick={handleAction}>Ver detalhes</button>
+      </div>
     </div>
-    <button type="button" onclick={handleAction}>Ação</button>
-  </div>
+  </article>
 </template>

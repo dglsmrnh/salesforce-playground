@@ -16,7 +16,12 @@
         <span class="tree-node__toggle-placeholder" aria-hidden="true"></span>
       </template>
 
-      <lwc:component lwc:is={renderer} lwc:spread={rendererProps} onaction={handleRendererAction}></lwc:component>
+      <lwc:component
+        class="tree-node__renderer"
+        lwc:is={renderer}
+        lwc:spread={rendererProps}
+        onaction={handleRendererAction}
+      ></lwc:component>
     </div>
 
     <template lwc:if={isExpanded}>
@@ -28,8 +33,8 @@
               item={child}
               renderer={renderer}
               depth={childDepth}
-              onselect={handleSelect}
-              ontoggle={handleToggle}
+              onselect={handleChildSelect}
+              ontoggle={handleChildToggle}
               onaction={handleChildAction}
             ></c-tree-node>
           </template>

@@ -19,9 +19,25 @@ const items = [
   }
 ];
 
-function createTree() {
+const nestedItems = [
+  {
+    name: 'root',
+    label: 'Root',
+    expanded: true,
+    items: [
+      {
+        name: 'branch',
+        label: 'Branch',
+        expanded: true,
+        items: [{ name: 'leaf', label: 'Leaf', items: [] }]
+      }
+    ]
+  }
+];
+
+function createTree(treeItems = items) {
   const element = createElement('c-tree-view', { is: TreeView });
-  element.items = items;
+  element.items = treeItems;
   element.renderer = TreeNodeRenderer;
   document.body.appendChild(element);
   return element;
@@ -99,6 +115,19 @@ describe('c-tree-view', () => {
 
     expect(child.shadowRoot.querySelector('button')).toBeNull();
     expect(child.shadowRoot.querySelector('.tree-node__toggle-placeholder')).not.toBeNull();
+  });
+
+  it('toggles a nested branch independently', async () => {
+    const element = createTree(nestedItems);
+    await flushPromises();
+
+    const root = element.shadowRoot.querySelector('c-tree-node');
+    const branch = root.shadowRoot.querySelector('c-tree-node');
+    branch.shadowRoot.querySelector('button').click();
+    await flushPromises();
+
+    expect(branch.shadowRoot.querySelector('.tree-node__children')).toBeNull();
+    expect(root.shadowRoot.querySelector('.tree-node__children')).not.toBeNull();
   });
 
   it('forwards actions from the custom renderer', async () => {
