@@ -1,0 +1,4 @@
+interface:
+  display_name: 'LWC with SLDS'
+  short_description: 'Prioritize SLDS and base components in LWC interfaces'
+  default_prompt: 'Use $lwc-slds to create or modify this LWC by prioritizing lightning-* base components and SLDS patterns.'
